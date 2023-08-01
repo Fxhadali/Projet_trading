@@ -1,0 +1,29 @@
+
+section {
+    margin-bottom: 40px;
+}
+
+/* Exemple de styles pour les tableaux contenus dans la classe "scrollable-table" */
+.scrollable-table {
+    overflow-x: auto;
+}
+
+/* Exemple de styles pour le tableau de signal hausse */
+.scrollable-table iframe[src*="signal_hausse.html"],
+.scrollable-table iframe[src*="signal_baisse.html"],
+.scrollable-table iframe[src*="long_trade.html"],
+.scrollable-table iframe[src*="short_trade.html"] {
+    width: 100%;
+    height: 500px;
+}
+
+/* Exemple de styles pour le graphique */
+.column img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Exemple de styles pour la conclusion */
+main h2:first-child {
+    margin-top: 40px;
+}
