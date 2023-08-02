@@ -3,26 +3,33 @@ import os
 
 app = Flask(__name__)
 
+# Récupérer le chemin du répertoire courant du script Python
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
+# Combiner le chemin du répertoire courant avec le chemin relatif du répertoire "templates"
+template_dir = os.path.join(current_dir, 'templates')
+
+# Définir le répertoire des modèles pour l'application Flask en utilisant le chemin complet
+app.template_folder = template_dir
+
 @app.route('/')
 def index():
-    # Get the absolute path of the 'templates' folder and render the 'index.html' file.
-    template_dir = os.path.abspath('/Users/fahad/Documents/Projet/templates/')
-    return render_template('index.html', template_folder=template_dir)
+    return render_template('index.html')
 
 @app.route('/moyenne_expo.html')
 def Moyenne_expo():
-    template_dir = os.path.abspath('/Users/fahad/Documents/Projet/templates/')
-    return render_template('moyenne_expo.html', template_folder=template_dir)
+    return render_template('moyenne_expo.html')
 
 @app.route('/analyse.html')
 def analyse():
-    template_dir = os.path.abspath('/Users/fahad/Documents/Projet/templates/')
-    return render_template('analyse.html', template_folder=template_dir)
+    return render_template('analyse.html')
 
 @app.route('/croisement_moyennes_mobiles.html')
 def croisement():
-    template_dir = os.path.abspath('/Users/fahad/Documents/Projet/templates/')
-    return render_template('croisement_moyennes_mobiles.html', template_folder=template_dir)
+    return render_template('croisement_moyennes_mobiles.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Utilisation de Gunicorn pour exécuter l'application Flask
+    # 'app' fait référence à l'objet Flask défini dans ce fichier (app.py)
+    # '-b 0.0.0.0:5000' spécifie l'adresse IP et le port sur lequel Gunicorn écoutera les connexions
+    app.run(host='0.0.0.0', port=5000, debug=True)
